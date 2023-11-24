@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+
+{% block content %}
+  <div class="p-5">
+    <h1 class="mb-4 text-3xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Agent Management</h1>
+    <h3 class="mt-2 mb-2 text-3xl font-bold dark:text-white">Total Agents Connected : <span>4</span></h3>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">Agent Name</th>
+            <th scope="col" class="px-6 py-3">IP</th>
+            <th scope="col" class="px-6 py-3">OS</th>
+            <th scope="col" class="px-6 py-3">Status</th>
+            <th scope="col" class="px-6 py-3">Last Seen</th>
+            <th scope="col" class="px-6 py-3">Agent Version</th>
+            <th scope="col" class="px-6 py-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i, j in data.items %}
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ i }}</th>
+              <td class="px-6 py-4">10.10.10.3</td>
+              <td class="px-6 py-4">Windows</td>
+              {% if j.Status == 'DOWN' %}
+                <td class="px-6 py-4 bg-red-300">{{ j.Status }}</td>
+              {% elif j.Status == 'UP' %}
+                <td class="px-6 py-4 bg-green-300">{{ j.Status }}</td>
+              {% endif %}
+              <td class="px-6 py-4 bg-green-300">{{ j.LastPing }}</td>
+              <td class="px-6 py-4">v1.0</td>
+              <td class="px-6 py-4">
+                <button id="dropdownHoverButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                  Interact<svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                  </svg>
+                </button>
+
+                <!-- Dropdown menu -->
+                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Connect</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reboot</a>
+                    </li>
+                    <li>
+                      <a href="agentsettings.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit Agent Settings</a>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 mt-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add Agent</button>
+  </div>
+{% endblock %}

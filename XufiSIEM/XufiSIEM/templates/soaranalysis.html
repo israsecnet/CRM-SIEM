@@ -1,0 +1,49 @@
+{% extends '_SOARbase.html' %}
+
+{% block content %}
+<div class="">
+  <div class="bg-gray-100">
+    <div class="p-4 sm:ml-2/12">
+      <h1 class="mb-4 text-3xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Analysis</h1>
+    </div>
+    <div class="p-4">
+      <form class="flex flex-wrap items-center justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+          <!-- Search bar -->
+          <div class="w-full sm:w-auto flex-grow">
+              <input type="text" placeholder="Search" class="w-full rounded-md border p-2 focus:outline-none focus:ring focus:border-blue-500">
+          </div>
+  
+          <!-- Date and time pickers for beginning and end parameters -->
+          <div class="w-full sm:w-auto flex-grow">
+              <label for="start_date" class="block text-gray-700 text-sm font-bold">Start Date and Time:</label>
+              <input type="datetime-local" id="start_date" name="start_date" class="w-full rounded-md border p-2 focus:outline-none focus:ring focus:border-blue-500">
+          </div>
+  
+          <div class="w-full sm:w-auto flex-grow">
+              <label for="end_date" class="block text-gray-700 text-sm font-bold">End Date and Time:</label>
+              <input type="datetime-local" id="end_date" name="end_date" class="w-full rounded-md border p-2 focus:outline-none focus:ring focus:border-blue-500">
+          </div>
+  
+          <!-- Dropdown picker for log type -->
+          <div class="w-full sm:w-auto flex-grow">
+              <label for="log_type" class="block text-gray-700 text-sm font-bold">Log Type:</label>
+              <select id="log_type" name="log_type" class="w-full rounded-md border p-2 focus:outline-none focus:ring focus:border-blue-500">
+                  <option value="SystemInfo">System Information Log</option>
+                  <option value="EventViewerApplication">Event Viewer Application Log</option>
+                  <option value="EventViewerSystem">Event Viewer System Log</option>
+                  <option value="EventViewerSecurity">Event Viewer Security Log</option>
+                  <!-- Add more options as needed -->
+              </select>
+          </div>
+  
+          <!-- Search button -->
+          <div class="w-full sm:w-auto flex-grow">
+              <button type="submit" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring">Search</button>
+          </div>
+      </form>
+  </div>
+  
+
+  </div>
+</div>
+{% endblock %}

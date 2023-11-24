@@ -1,0 +1,106 @@
+{% extends '_SOARbase.html' %}
+
+{% block content %}
+  <div class="block mb-9">
+    <div class="bg-gray-100">
+      <div class="p-4 sm:ml-2/12">
+        <h1 class="mb-4 text-3xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Blocklist Management</h1>
+      </div>
+    </div>
+    <div class="flex p-4">
+      <!-- Global Blocklist -->
+      <div class="p-5 mb-6 flex flex-col">
+        <h3 class="text-lg font-semibold mb-2">Global Blocklist</h3>
+        <button class="text-green-600 self-end mb-2">Add Entry</button>
+        <ul class="list-disc list-inside">
+          <li>
+            Blocklist Item 1
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <li>
+            Blocklist Item 2
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <!-- Add more global blocklist items as needed -->
+        </ul>
+      </div>
+
+      <!-- Global Allowlist -->
+      <div class="p-5 mb-6 flex flex-col">
+        <h3 class="text-lg font-semibold mb-2">Global Allowlist</h3>
+        <button class="text-green-600 self-end mb-2">Add Entry</button>
+        <ul class="list-disc list-inside">
+          <li>
+            Allowlist Item 1
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <li>
+            Allowlist Item 2
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <!-- Add more global allowlist items as needed -->
+        </ul>
+      </div>
+
+      <!-- Device-Specific Blocklist -->
+      <div class="p-5 mb-6 flex flex-col">
+        <h3 class="text-lg font-semibold mb-2">Device-Specific Blocklist</h3>
+        <div class="flex items-center mb-2">
+          <label for="device_select" class="mr-2">Select Device:</label>
+          <select id="device_select" name="device_select" class="rounded-md border p-2 focus:outline-none focus:ring focus:border-blue-500">
+            <option value="device1">Device 1</option>
+            <option value="device2">Device 2</option>
+            <option value="device3">Device 3</option>
+            <!-- Add more device options as needed -->
+          </select>
+          <button class="text-green-600 ml-2">Add Entry</button>
+        </div>
+        <ul class="list-disc list-inside">
+          <li>
+            Blocklist Item for Device 1
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <li>
+            Blocklist Item for Device 2
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <!-- Add more device-specific blocklist items as needed -->
+        </ul>
+      </div>
+
+      <!-- Device-Specific Whitelist -->
+      <div class="p-5 flex flex-col">
+        <h3 class="text-lg font-semibold mb-2">Device-Specific Whitelist</h3>
+        <div class="flex items-center mb-2">
+          <label for="whitelist_device_select" class="mr-2">Select Device:</label>
+          <select id="whitelist_device_select" name="whitelist_device_select" class="rounded-md border p-2 focus:outline-none focus:ring focus:border-blue-500">
+            <option value="device1">Device 1</option>
+            <option value="device2">Device 2</option>
+            <option value="device3">Device 3</option>
+            <!-- Add more device options as needed -->
+          </select>
+          <button class="text-green-600 ml-2">Add Entry</button>
+        </div>
+        <ul class="list-disc list-inside">
+          <li>
+            Whitelist Item for Device 1
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <li>
+            Whitelist Item for Device 2
+            <button class="text-blue-600 ml-2">Edit</button>
+            <button class="text-red-600 ml-2">Delete</button>
+          </li>
+          <!-- Add more device-specific whitelist items as needed -->
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
